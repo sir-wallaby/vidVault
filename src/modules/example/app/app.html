@@ -1,13 +1,22 @@
 <template>
     <main>
-        <h1 class="slds-box">SLDS with LWR</h1>
-        <span class="slds-badge slds-theme_error">Badge to show SLDS with LWR</span>
-        <lightning-helptext content="You'll receive weekly updates"></lightning-helptext>
-    
-        <lightning-card  title="lgtn-card">
-            <lightning-button label="lgtn-btn" slot="actions" class="slds-p-around_small"></lightning-button>
-            <p class="slds-p-horizontal_small">LBC with LWR on Node.js</p>
-            <p slot="footer">{testName}</p>
+        <lightning-card title="File Uploader">
+            <div class="slds-p-around_medium">
+                <lightning-input
+                type="file"
+                label="Attachment"
+                accept=".mp4"
+                onchange={handleFileChange}>
+                </lightning-input>
+                <!-- <input type="file" accept=".mp4" onchange={handleFileChange} />
+                <lightning-button label="Upload" onclick={handleUpload} class="slds-m-top_medium"></lightning-button>
+                <template if:true={uploadSuccess}>
+                    <p class="slds-text-color_success">File uploaded successfully!</p>
+                </template>
+                <template if:true={uploadError}>
+                    <p class="slds-text-color_error">Error uploading file.</p>
+                </template> -->
+            </div>
         </lightning-card>
     
     </main>
