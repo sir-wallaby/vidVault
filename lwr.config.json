@@ -1,0 +1,27 @@
+{
+    "lwc": { "modules": [{ "dir": "$rootDir/src/modules" },{ "npm": "lightning-base-components" }] },
+    "routes": [
+        {
+            "id": "example",
+            "path": "/",
+            "rootComponent": "example/app",
+            "layoutTemplate": "$layoutsDir/main_layout.html",
+         
+            "bootstrap": {
+            "syntheticShadow": true
+            }
+        }
+    ],
+    "assets": [
+        {
+            "alias": "assetsDir",
+            "dir": "$rootDir/src/assets",
+            "urlPath": "/assets"
+        },
+        {
+            "file": "$rootDir/src/assets/icons/utility-sprite/svg/symbols.svg",
+            "urlPath": "/lightning.utilitySprite"
+        }
+    ],
+    "layoutsDir": "$rootDir/src/layout"
+}
