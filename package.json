@@ -1,6 +1,6 @@
 {
   "name": "vidvault",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "license": "MIT",
   "private": true,
   "type": "module",
@@ -15,14 +15,15 @@
     "stage:prod-compat": "yarn build:prod-compat && yarn start"
   },
   "dependencies": {
+    "lightning-base-components": "latest",
     "lwc": "latest",
     "lwr": "latest",
-    "lightning-base-components": "latest"
+    "postgrejs": "^2.22.3"
   },
   "devDependencies": {
-        "@salesforce-ux/design-system": "latest",
-        "cpx": "latest"
-    },
+    "@salesforce-ux/design-system": "latest",
+    "cpx": "latest"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
