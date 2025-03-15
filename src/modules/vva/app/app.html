@@ -1,17 +1,10 @@
 <template>
     <main>
-        <lightning-card title="File Uploader">
+        <lightning-card title="File Uploader" class="slds-align_absolute-center">
             <div class="slds-var-p-around_medium">
                 <input label="fileUpload" type="file" accept=".mp4" onchange={handleFileChange} />
-                <lightning-button label="Upload" onclick={handleUpload} class="slds-var-m-top_medium"></lightning-button>
-                <template if:true={uploadSuccess}>
-                    <p class="slds-text-color_success">File uploaded successfully!</p>
-                </template>
-                <template if:true={uploadError}>
-                    <p class="slds-text-color_error">Error uploading file.</p>
-                </template>
+                <lightning-button label="Upload" onclick={handleUpload}></lightning-button>
             </div>
         </lightning-card>
-    
     </main>
 </template>

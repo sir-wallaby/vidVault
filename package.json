@@ -11,13 +11,18 @@
     "build": "node ./scripts/copy-slds.mjs && lwr build --clean",
     "build:prod-compat": "lwr build --clean --mode prod-compat",
     "start": "lwr start",
+    "startExpress": "node server.js",
     "stage": "yarn build && yarn start",
     "stage:prod-compat": "yarn build:prod-compat && yarn start"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "lightning-base-components": "latest",
     "lwc": "latest",
     "lwr": "latest",
+    "pg": "^8.14.0",
     "postgrejs": "^2.22.3"
   },
   "devDependencies": {
