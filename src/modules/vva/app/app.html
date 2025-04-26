@@ -1,10 +1,65 @@
 <template>
-    <main>
-        <lightning-card title="File Uploader" class="slds-align_absolute-center">
-            <div class="slds-var-p-around_medium">
-                <input label="fileUpload" type="file" accept=".mp4" onchange={handleFileChange} />
-                <lightning-button label="Upload" onclick={handleUpload}></lightning-button>
-            </div>
-        </lightning-card>
+    <main class="slds-var-p-around_medium slds-size_1-of-1">
+      <!-- File Uploader -->
+      <lightning-card title="File Uploader" class="slds-var-m-bottom_medium">
+        <div class="slds-var-p-around_medium">
+          <input
+            type="file"
+            accept=".mp4"
+            onchange={handleFileChange}
+            class="slds-var-m-bottom_small"
+          />
+          <lightning-button
+            label="Upload"
+            variant="brand"
+            onclick={handleUpload}
+          ></lightning-button>
+        </div>
+      </lightning-card>
+  
+      <!-- Video List & Player -->
+      <lightning-card title="Video Library">
+        <div class="slds-var-p-around_medium">
+          <!-- List -->
+          <template if:true={videos}>
+            <ul class="slds-list_dotted slds-var-m-bottom_medium">
+              <template for:each={videos} for:item="vid">
+                <li key={vid.id} class="slds-item">
+                  <button
+                    class="slds-button slds-button_reset slds-text-link"
+                    data-id={vid.id}
+                    onclick={handleSelect}
+                  >
+                    {vid.name}
+                  </button>
+                  <small class="slds-text-body_small"> - {vid.type}</small>
+                </li>
+              </template>
+            </ul>
+          </template>
+          <template if:true={errorList}>
+            <p class="slds-text-color_error">{errorList}</p>
+          </template>
+  
+          <!-- Player -->
+          <template if:true={selectedVideo}>
+            <lightning-card title={selectedVideo.name}>
+              <div class="slds-var-p-around_medium">
+                <video
+                  controls
+                  style="width:100%; height:auto;"
+                  src={videoSrc}
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+                <p class="slds-text-body_small slds-var-m-top_small">
+                  Uploaded: {selectedVideo.uploadedAt}
+                </p>
+              </div>
+            </lightning-card>
+          </template>
+        </div>
+      </lightning-card>
     </main>
-</template>
+  </template>
+  
